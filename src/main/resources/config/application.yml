@@ -1,5 +1,8 @@
 server:
   port: 8080
+  servlet:
+    session:
+      timeout: 30m
 
 spring:
   profiles:
@@ -43,11 +46,11 @@ spring:
         reset-enable: true
         url-pattern: /druid/*
 
-
-
 mybatis:
   mapper-locations: classpath:mapping/*/*.xml
   type-aliases-package: com.example.demo.entity
+
+
 pagehelper:
   helperDialect: mysql
   reasonable: true
