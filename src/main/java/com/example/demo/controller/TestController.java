@@ -13,7 +13,7 @@ public class TestController {
 
     @RequestMapping("/test")
     public String test() {
-        return userService.getUser("lisi").toString();
+        return null;
     }
 
     @RequestMapping("/test1")

@@ -1,8 +1,9 @@
 package com.example.demo.entity;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.*;
+import java.util.List;
 
 public class User implements Serializable {
     @Id
@@ -33,7 +34,18 @@ public class User implements Serializable {
     @Column(name = "is_deleted")
     private String isDeleted;
 
+    @Transient
+    private List<Role> roles;
+
     private static final long serialVersionUID = 1L;
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
 
     /**
      * @return id

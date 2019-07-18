@@ -17,4 +17,8 @@
     -->
     id, user_id, role_id, gmt_create, is_deleted
   </sql>
+
+  <delete id="deleteByUserId" parameterType="long">
+    delete from user_role where user_id = #{user_id}
+  </delete>
 </mapper>
