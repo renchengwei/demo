@@ -11,6 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.session.HttpSessionEventPublisher;
 
 @Configurable
 @EnableWebSecurity
@@ -29,7 +30,16 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        super.configure(http);
+        http
+                .authorizeRequests()
+                .anyRequest().authenticated()
+                .and()
+                .formLogin().and()
+                .httpBasic().and()
+                .sessionManagement()
+                .maximumSessions(1).maxSessionsPreventsLogin(true)
+                .expiredUrl("/login").and()
+                .invalidSessionUrl("/login");
     }
 
 
@@ -41,5 +51,10 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public UserDetailsService securityUserDetailsService() {
         return new SecurityUserDetailsService();
+    }
+
+    @Bean
+    public HttpSessionEventPublisher httpSessionEventPublisher() {
+        return new HttpSessionEventPublisher();
     }
 }

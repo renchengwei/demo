@@ -1,5 +1,8 @@
 server:
   port: 8080
+  servlet:
+    session:
+      timeout: 30m
 
 spring:
   profiles:
@@ -46,6 +49,8 @@ spring:
 mybatis:
   mapper-locations: classpath:mapping/*/*.xml
   type-aliases-package: com.example.demo.entity
+
+
 pagehelper:
   helperDialect: mysql
   reasonable: true
