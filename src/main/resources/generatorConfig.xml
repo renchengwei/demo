@@ -8,6 +8,7 @@
 
         <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
         <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin" />
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
 <!--        <plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin">-->
 <!--            <property name="searchString" value="Example$" />-->
 <!--            <property name="replaceString" value="Criteria" />-->
@@ -25,6 +26,7 @@
                         connectionURL="jdbc:mysql://localhost:3306/test?serverTimezone=Asia/Shanghai&amp;useUnicode=true&amp;characterEncoding=utf8"
                         userId="root"
                         password="111111">
+            <property name="nullCatalogMeansCurrent" value="true" />
         </jdbcConnection>
 
         <javaTypeResolver>
