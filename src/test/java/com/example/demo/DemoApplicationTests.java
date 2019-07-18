@@ -1,7 +1,7 @@
 package com.example.demo;
 
-import com.example.demo.entity.Roles;
-import com.example.demo.mapper.RolesMapper;
+import com.example.demo.entity.Role;
+import com.example.demo.mapper.RoleMapper;
 import com.example.demo.mapper.UserMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,13 +21,13 @@ public class DemoApplicationTests {
 	@Autowired
 	private UserMapper userMapper;
 	@Autowired
-	private RolesMapper rolesMapper;
+	private RoleMapper roleMapper;
 
 	@Test
 	public void contextLoads() {
-		Roles roles = new Roles();
+		Role roles = new Role();
 		roles.setId(2L);
-		Roles r1 = rolesMapper.selectOne(roles);
+		Role r1 = roleMapper.selectOne(roles);
 		System.out.println(r1.toString());
 	}
 

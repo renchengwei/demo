@@ -6,13 +6,13 @@ server:
 
 spring:
   profiles:
-    active: dev
+    active: company
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
-      url: jdbc:mysql://db4free.net:3306/testspringboot?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8
-      username: testspringboot
-      password: rencw1225
+      url: jdbc:mysql://192.168.58.251:3306/mytest?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8
+      username: mytest
+      password: 123456
       driver-class-name: com.mysql.cj.jdbc.Driver
       initial-size: 1
       min-idle: 1
